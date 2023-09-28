@@ -1,5 +1,5 @@
 import { SafeAreaView, StyleSheet, Image, View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
-import React from 'react';
+import {React, useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {LoginStyle} from '../styles/Login'
 
