@@ -1,0 +1,24 @@
+[
+    {
+      "nombre": "Zócalo de Tehuacán",
+      "direccion": "Calle Hidalgo, Centro, Tehuacán, Puebla, México",
+      "latitud": 18.4555,
+      "longitud": -97.3874,
+      "categoria": "Plaza"
+    },
+    {
+      "nombre": "Parque Juárez",
+      "direccion": "Calle Morelos, Centro, Tehuacán, Puebla, México",
+      "latitud": 18.4559,
+      "longitud": -97.3850,
+      "categoria": "Parque"
+    },
+    {
+      "nombre": "Museo de la Evolución",
+      "direccion": "Calle Reforma, Centro, Tehuacán, Puebla, México",
+      "latitud": 18.4502,
+      "longitud": -97.3905,
+      "categoria": "Museo"
+    }
+  ]
+  
