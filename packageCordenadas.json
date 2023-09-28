@@ -19,6 +19,27 @@
       "latitud": 18.4502,
       "longitud": -97.3905,
       "categoria": "Museo"
-    }
+    },
+    {
+        "nombre": "Catedral de Tehuacán",
+        "direccion": "Calle Independencia, Centro, Tehuacán, Puebla, México",
+        "latitud": 18.4572,
+        "longitud": -97.3866,
+        "categoria": "Iglesia"
+      },
+      {
+        "nombre": "Mercado Municipal de Tehuacán",
+        "direccion": "Calle 3 Sur, Centro, Tehuacán, Puebla, México",
+        "latitud": 18.4550,
+        "longitud": -97.3869,
+        "categoria": "Mercado"
+      },
+      {
+        "nombre": "Parque Ecológico El Cedazo",
+        "direccion": "Calle Heroico Colegio Militar, Tehuacán, Puebla, México",
+        "latitud": 18.4481,
+        "longitud": -97.3919,
+        "categoria": "Parque"
+      }
   ]
   
