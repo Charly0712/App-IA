@@ -1,15 +1,27 @@
-import React from 'react';
-import { Text, StyleSheet, View, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
+import {React, useState} from 'react';
+import { Text, StyleSheet, View, SafeAreaView, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {RegisterStyle} from '../styles/Register'
 
+import * as ImagePicker from 'expo-image-picker';
+
 export default function Register() {
   const navigation = useNavigation();
+  const [selectedImage, setSelectedImage] = useState(null); 
 
-    // Función para manejar la navegación a la pantalla de Registro
+
     const handleSignUpPressLogin = () => {
         navigation.navigate('Login');
     };
+
+  const selectImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync();
+
+    if (!result.cancelled) {
+      setSelectedImage(result.uri);
+    }
+  };
+
   return (
     <SafeAreaView style={RegisterStyle.container}>
 
@@ -17,11 +29,18 @@ export default function Register() {
 
       <View>
 
-      <View style={RegisterStyle.spacing}>
-        <Text style={RegisterStyle.signupTop}>Sing up for a</Text>
-        <Text style={RegisterStyle.signupBottom}>new account.</Text>  
-        <Text style={RegisterStyle.subTittle}>We just need some more information</Text>   
-      </View>
+      <View style={RegisterStyle.imageAndText}>
+
+          <View style={RegisterStyle.textContainer}>
+            <Text style={RegisterStyle.signupTop}>Sing up for a</Text>
+            <Text style={RegisterStyle.signupBottom}>new account.</Text>
+            <Text style={RegisterStyle.subTittle}>We just need some more information</Text>
+          </View>
+
+          {selectedImage && (
+            <Image source={{ uri: selectedImage }} style={RegisterStyle.circularImage} />
+          )}
+        </View>
       
       <View style={RegisterStyle.spacing}>
           <Text style={RegisterStyle.label} >Name</Text>
@@ -64,6 +83,10 @@ export default function Register() {
               secureTextEntry={true}
           />
       </View>
+
+      <TouchableOpacity style={RegisterStyle.buttonImage} onPress={selectImage}>
+            <Text style={RegisterStyle.buttonText}>Seleccionar Imagen</Text>
+      </TouchableOpacity>
 
       <View style={RegisterStyle.spacing}>
           <TouchableOpacity style={RegisterStyle.button}>

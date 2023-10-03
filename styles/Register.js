@@ -21,11 +21,11 @@ export const RegisterStyle = StyleSheet.create({
       textInput:{
         color: "#000",
         padding: 8,
-        borderBottomWidth: 1.5, // Ajusta el grosor del subrayado aquí
-        borderColor: "#C43FB0", // Cambia el color del subrayado aquí
+        borderBottomWidth: 1.5, 
+        borderColor: "#C43FB0", 
       },
       spacing:{
-        marginTop:30,
+        marginTop:20,
       },
       button:{
         backgroundColor: "#C43FB0",
@@ -34,11 +34,19 @@ export const RegisterStyle = StyleSheet.create({
         alignItems: "center",
         textAlign: "center",
       },
+      buttonImage:{
+        backgroundColor: "#C43FB0",
+        height: 30,
+        margin: 10,
+        alignItems: "center",
+        textAlign: "center",
+        borderRadius:30,
+      },
       buttonText:{
         fontSize:20,
         color: "white",
         fontWeight: "bold",
-      },
+      }
       row:{
         flexDirection:"row",
         justifyContent:"center",
@@ -63,5 +71,15 @@ export const RegisterStyle = StyleSheet.create({
       subTittle:{
         fontSize : 12 ,
         color: "#ccc"
-      }
+      },
+      imageAndText: {
+        flexDirection: 'row',
+        alignItems: 'center',
+      },
+      circularImage: {
+        width: 100,
+        height: 100,
+        borderRadius: 50, 
+        marginLeft: 30, 
+      },
 })
