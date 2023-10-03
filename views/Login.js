@@ -1,11 +1,30 @@
-import { SafeAreaView, StyleSheet, Image, View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, Image, View, Text, TextInput, Button, TouchableOpacity, Alert } from 'react-native';
 import {React, useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {LoginStyle} from '../styles/Login'
+import {LoginStyle} from '../styles/Login';
+
+import appFirebase from  '../crendeciales/enviroments';
+import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+const auth = getAuth(appFirebase);
 
 
 
-const Login = () => {
+const Login = (props) => {
+
+    //Variables de estado
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+
+    const logueo = async()=>{
+        try {
+            await signInWithEmailAndPassword(auth, email, password)
+            Alert.alert('Iniciando sesión', 'Accediendo..')
+            props.navigation.navigate('Home')
+        } catch (error) {
+            console.log(error)
+            Alert.alert('Error', 'El usuario o la contraseña son incorrectos')
+        }
+    }
 
     const navigation = useNavigation();
 
@@ -48,6 +67,7 @@ const Login = () => {
                         placeholder="ejemplo@ejemplo.com" 
                         keyboardType="email-address"
                         returnKeyType="next"
+                        onChangeText={(text) =>setEmail(text)}
                     />  
                 </View>
 
@@ -59,6 +79,7 @@ const Login = () => {
                         underlineColorAndroid={"transparent"}
                         placeholder="*******" 
                         secureTextEntry={true}
+                        onChangeText={(text)=> setPassword(text)}
                     />
                 </View>
 
@@ -67,7 +88,7 @@ const Login = () => {
                 </View>  
 
                 <View style={LoginStyle.spacing}>
-                    <TouchableOpacity style={LoginStyle.button}>
+                    <TouchableOpacity style={LoginStyle.button} onPress={logueo}>
                             <Text style={LoginStyle.buttonText}>Login</Text>
                     </TouchableOpacity>
                  </View>
